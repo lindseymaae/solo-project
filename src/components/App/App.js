@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 
@@ -18,10 +18,11 @@ import AddNewItem from '../AddNewItem/AddNewItem'
 
 import './App.css';
 import DeleteItem from '../DeleteItem/DeleteItem';
+import Inventory from '../Inventory/Inventory';
 
 class App extends Component {
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' })
   }
 
   render() {
@@ -32,8 +33,8 @@ class App extends Component {
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
-            <Route exact path = '/home'
-            component={Home} />
+            <Route exact path='/home'
+              component={Home} />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route
@@ -50,15 +51,18 @@ class App extends Component {
               path="/volunteer-home"
               component={VolunteerHome}
             />
-          <ProtectedRoute exact path = '/delete-item'
-          component={DeleteItem} />
+            <ProtectedRoute exact path='/delete-item'
+              component={DeleteItem} />
+            <ProtectedRoute
+              exact path='/inventory'
+              component={Inventory} />
             <Route render={() => <h1>404</h1>} />
-
           </Switch>
-          
+
         </div>
       </Router>
-  )}
+    )
+  }
 }
 
 export default connect()(App);
