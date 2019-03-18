@@ -17,6 +17,7 @@ import Home from '../Home/Home'
 import AddNewItem from '../AddNewItem/AddNewItem'
 
 import './App.css';
+import DeleteItem from '../DeleteItem/DeleteItem';
 
 class App extends Component {
   componentDidMount () {
@@ -49,8 +50,10 @@ class App extends Component {
               path="/volunteer-home"
               component={VolunteerHome}
             />
-        
+          <ProtectedRoute exact path = '/delete-item'
+          component={DeleteItem} />
             <Route render={() => <h1>404</h1>} />
+
           </Switch>
           
         </div>
