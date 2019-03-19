@@ -7,5 +7,6 @@ const projectReducer = (state = [], action) => {
         default:
             return state;
     }
+  
 };
 export default projectReducer;
