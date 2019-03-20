@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 
 //Public Home page 
-const Home = () => (
-    <div>
-        <h1 id="wishlist">
-            Welcome to our wishlist
+class Home extends Component {
+    componentDidMount() {
+        console.log('Mounted');
+
+        this.props.dispatch({ type: 'FETCH_INFO' });
+    }
+
+   render () {
+       console.log(this.props.projectReducer);
+       
+       return (
+ <div>
+    <h1 id="wishlist">
+        Welcome to our wishlist
         </h1>
-        <h2> Our Top Needs are:  </h2>
-        {/* will be sourcing in database query text for top needs list */}
+    <h2> Our Top Needs are:  </h2>
+        {this.props.projectReducer.map((item) => (
+            <ol>
+                <li>
+                    {item.product_name}
+                </li>
+            </ol>
+        ))
+       
+    }
 
+    </div >
+       )
+   }
+}
 
-    </div>
-);
+    
+   
 
 
 const mapStateToProps = state => ({
+    
+    
     user: state.user,
+    projectReducer: state.projectReducer,
 });
 
 // this allows us to use <App /> in index.js

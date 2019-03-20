@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './AddNewItem.css';
 import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/styles'
 //Home page for volunteers 
 
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
@@ -16,10 +14,7 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'wrap',
     },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-    },
+    
     dense: {
         marginTop: 16,
     },
@@ -38,66 +33,28 @@ class AddNewItem extends Component {
     }
 
     handleCategoryClick = (item) => {
-        if (item = 'hygiene') {
+       
             this.setState({
-                category: 3
+                category: item
             })
+       
         }
-        if (item = 'food') {
-            this.setState({
-                category: 1
-            })
-        }
-        if (item = 'spring') {
-            this.setState({
-                season: 4,
-            })
-        }
-        if (item = 'clothing') {
-            this.setState({
-                season: 2,
-            })
-        }
-    }
+    
     handleSeasonClick = (item) => {
-        if (item = 'fall') {
-            this.setState({
-                season: 2
-            })
-        }
-        if (item = 'summer') {
-            this.setState({
-                season: 1
-            })
-        }
-        if (item = 'spring') {
-            this.setState({
-                season: 4,
-            })
-        }
-        if (item = 'winter') {
-            this.setState({
-                season: 3,
-            })
-        }
-        if (item = 'all') {
-            this.setState({
-                season: 5,
-            })
-        }
+        this.setState({
+            season: item
+        })
     }
 
     addNewProduct = event => {
         event.preventDefault();
         this.props.dispatch({ type: 'POST_INFO', payload: this.state })
         this.setState({
-            newProduct: {
                 id: this.state.id + 1,
                 name: '',
                 quantity: '',
-                category: '',
-                season: '',
-            }
+                category: 'Category',
+                season: 'Season',
         });
     }
 
@@ -151,18 +108,18 @@ class AddNewItem extends Component {
                     <Button>{this.state.category}</Button>
                     <div class="dropdown-content">
                         <a onClick={() => this.handleCategoryClick('food')}>Food</a>
-                        <a onClick={() => this.handleCategoryClick('Clothing')}>Clothing</a>
-                        <a onClick={() => this.handleCategoryClick('Hygiene')}>Hygiene</a>
+                        <a onClick={() => this.handleCategoryClick('clothing')}>Clothing</a>
+                        <a onClick={() => this.handleCategoryClick('hygiene')}>Hygiene</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <Button >{this.state.season}</Button>
                     <div class="dropdown-content">
-                        <a onClick={() => this.handleSeasonClick('Winter')}>Winter</a>
-                        <a onClick={() => this.handleSeasonClick('Spring')}>Spring</a>
-                        <a onClick={() => this.handleSeasonClick('Summer')}>Summer</a>
-                        <a onClick={() => this.handleSeasonClick('Fall')}>Fall</a>
-                        <a onClick={() => this.handleSeasonClick('All')}>All Seasons</a>
+                        <a onClick={() => this.handleSeasonClick('winter')}>Winter</a>
+                        <a onClick={() => this.handleSeasonClick('spring')}>Spring</a>
+                        <a onClick={() => this.handleSeasonClick('summer')}>Summer</a>
+                        <a onClick={() => this.handleSeasonClick('fall')}>Fall</a>
+                        <a onClick={() => this.handleSeasonClick('all')}>All Seasons</a>
                     </div>
                 </div>
                 <Button onClick={this.addNewProduct} className="submitButton">Submit</Button>
@@ -180,4 +137,5 @@ const mapStateToProps = state => ({
 });
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(AddNewItem);
+export default withStyles(styles)(
+    connect(mapStateToProps)(AddNewItem));

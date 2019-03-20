@@ -23,7 +23,6 @@ class Inventory extends Component {
                     <TableHead className='table'>
                         <th>Item</th>
                         <th>Quantity</th>
-                        <th>Minimum Quantity</th>
                         <th>Category</th>
                         <th>Season</th>
                     </TableHead>
@@ -31,8 +30,7 @@ class Inventory extends Component {
                         <TableBody>
                             <TableRow>
                                 <TableCell>{item.product_name}</TableCell>
-                                <TableCell>{item.product_quantity}</TableCell>
-                                <TableCell>{item.product_min_quantity}</TableCell>
+                                <TableCell>{item.sum}</TableCell>
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.season}</TableCell>
                             </TableRow>
