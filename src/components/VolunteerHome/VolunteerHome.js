@@ -11,18 +11,15 @@ const VolunteerPage = (props) => (
             Welcome, {props.user.username}!
         </h1>
         <h2> What would you like to do? </h2>
-
-        <Link className="home-link" to="/delete-item">
-            Delete Item
-        </Link>
-
-        <Link className="home-link" to="/add-new-item">
-            Add New Item
-        </Link>
-        <Link className="home-link" to="/inventory"> Inventory </Link>
-
-        <LogOutButton className="log-in" />
-
+        <div className="home-div">
+            <Link className="home-link" to="/delete-item">
+                Delete Item
+            </Link>
+            <Link className="home-link" to="/add-new-item">
+                Add New Item
+            </Link>
+            <Link className="home-link" to="/inventory"> Inventory </Link>
+        </div>
     </div>
 );
 

@@ -69,12 +69,22 @@ function* getQuantity (action){
         console.log('Error with your fetch');
     }
 }
+function* deleteItem (action){
+    console.log('delete saga hit', action);
+    try {
+        yield axios.delete('/api/project/'+ action.payload)
+        yield dispatch({ type: 'FETCH_INFO' });
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 function* projectSaga() {
     yield takeEvery('FETCH_INFO', fetchInfo)
     yield takeEvery('POST_INFO', postProject)
     yield takeEvery('GET_QUANTITY', getQuantity)
+    yield takeEvery('DELETE_ITEM', deleteItem)
 }
 
 

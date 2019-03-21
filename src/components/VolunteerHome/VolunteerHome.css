@@ -1,10 +1,17 @@
  .home-link{
-  float: center;
+  
   color: #f2f2f2;
   background-color: #00acb0;
   text-align: center;
-  padding: 24px 10px;
-  text-decoration: none;
-  font-size: 15px;
-  
+  padding: 20px 10px;
+  font-size: 25px;
+  margin-bottom: 10px
+ }
+
+ .home-div{
+text-align:  center;
+display: flex;
+flex-direction: column;
+padding: 0px 35%;
+
  }

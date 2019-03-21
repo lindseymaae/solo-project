@@ -6,8 +6,12 @@ class Home extends Component {
     componentDidMount() {
         console.log('Mounted');
 
-        this.props.dispatch({ type: 'FETCH_INFO' });
-    }
+        this.props.dispatch({ type: 'FETCH_INFO' });}
+    mapThings = ()=>{
+
+        
+    
+}
 
    render () {
        console.log(this.props.projectReducer);
@@ -18,16 +22,14 @@ class Home extends Component {
         Welcome to our wishlist
         </h1>
     <h2> Our Top Needs are:  </h2>
-        {this.props.projectReducer.map((item) => (
-            <ol>
-                <li>
-                    {item.product_name}
-                </li>
-            </ol>
-        ))
-       
-    }
-
+    <ol>
+                   {this.props.projectReducer.map((item) => (
+                       <li>
+                           {item.product_name}
+                       </li>
+                   ))}
+       </ol>
+            
     </div >
        )
    }

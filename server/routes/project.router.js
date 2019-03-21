@@ -8,10 +8,13 @@ const router = express.Router();
 router.get('/', (req, res) => {
 
     const queryText = `
-        SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season" from "products"
+      SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
+        "products"."product_min_quantity", "products"."id" FROM "products"
+        
 JOIN "categories" ON "products"."catergory_id" = "categories"."id"
 JOIN "seasons" ON "products"."season_id" = "seasons"."id"
-GROUP BY "product_name", "category", "season" HAVING COUNT (*) > 1 OR COUNT(*) = 1;`
+GROUP BY "product_name", "category", "season", "product_min_quantity", "products"."id" HAVING COUNT (*) > 1 OR COUNT(*) = 1;
+`
     pool.query(queryText)
         .then((response) => {
             console.log(response.rows[0]);
@@ -70,6 +73,22 @@ console.log(req.body);
     });
 
 
+//DELETE Route, takes item id and deletes from database
+router.delete('/:id', (req, res) => {
+    const queryText = `DELETE FROM "products" WHERE "id"=$1;`
+    const queryValues = [
+        req.params.id
+    ];
+    console.log('req.params.id', queryValues);
 
+    pool.query(queryText, queryValues)
+
+        .then(() => { res.sendStatus(201); })
+        .catch((error) => {
+            console.log('Error completing DELETE query', error);
+            res.sendStatus(500);
+        });
+
+});
 
 module.exports = router;

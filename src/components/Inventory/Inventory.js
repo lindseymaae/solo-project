@@ -9,7 +9,6 @@ class Inventory extends Component {
 
     componentDidMount(){
         console.log('Mounted');
-
         this.props.dispatch({type: 'FETCH_INFO'});
     }
 
