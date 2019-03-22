@@ -6,7 +6,7 @@ class Home extends Component {
     componentDidMount() {
         console.log('Mounted');
 
-        this.props.dispatch({ type: 'FETCH_INFO' });}
+        this.props.dispatch({ type: 'GET_QUANTITY' });}
     mapThings = ()=>{
 
         
@@ -14,7 +14,7 @@ class Home extends Component {
 }
 
    render () {
-       console.log('tj.....',this.props.projectReducer);
+      
        
        return (
  <div>

@@ -11,7 +11,7 @@ class Delete extends Component {
     componentDidMount() {
         console.log('Mounted');
 
-        this.props.dispatch({ type: 'GET_QUANTITY' });
+        this.props.dispatch({ type: 'FETCH_INFO' });
     }
 
     handleDeleteClick = id => () => {

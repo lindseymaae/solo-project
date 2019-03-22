@@ -7,8 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
 
-    const queryText = `
-    SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
+    const queryText = ` SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
         "products"."product_min_quantity", "products"."id" AS "product_id" FROM "products"
 JOIN "categories" ON "products"."catergory_id" = "categories"."id"
 JOIN "seasons" ON "products"."season_id" = "seasons"."id"
@@ -26,7 +25,7 @@ GROUP BY "product_id","product_name", "category", "season", "product_min_quantit
 });
 
 router.get('/quantity', (req, res) => {
-console.log(req.body);
+console.log('THIS IS GETTING HIT');
 
     const queryText = `SELECT * FROM "products"
         JOIN "categories" ON "products"."catergory_id" = "categories"."id"
@@ -34,6 +33,8 @@ console.log(req.body);
     pool.query(queryText)
         .then((response) => {
             res.send(response.rows);
+            console.log('This is my quantity GET', response.rows);
+            
         })
         .catch((err) => {
             console.log('Error completing SELECT item query', err);

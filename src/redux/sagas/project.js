@@ -61,11 +61,11 @@ function* fetchInfo() {
     }
 }
 
-function* getQuantity (action){
-    console.log('GET QUANTITY get quantity was hit', action.payload);
+function* getQuantity (){
+    console.log('GET QUANTITY get quantity was hit');
     try {
-        const infoResponse = yield axios.get(`/api/quantity/${action.payload.item}`);
-        yield dispatch({ type: 'GET_INFO', payload: infoResponse.data })
+        const infoResponse = yield axios.get(`/api/project/quantity`);
+        yield dispatch({ type: 'GET_NEEDS', payload: infoResponse.data })
     } catch (error) {
         console.log('Error with your fetch');
     }
