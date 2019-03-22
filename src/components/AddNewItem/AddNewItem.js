@@ -107,19 +107,19 @@ class AddNewItem extends Component {
                 <div className="dropdown">
                     <Button>{this.state.category}</Button>
                     <div class="dropdown-content">
-                        <a onClick={() => this.handleCategoryClick('food')}>Food</a>
-                        <a onClick={() => this.handleCategoryClick('clothing')}>Clothing</a>
-                        <a onClick={() => this.handleCategoryClick('hygiene')}>Hygiene</a>
+                        <p onClick={() => this.handleCategoryClick('food')}>Food</p>
+                        <p onClick={() => this.handleCategoryClick('clothing')}>Clothing</p>
+                        <p onClick={() => this.handleCategoryClick('hygiene')}>Hygiene</p>
                     </div>
                 </div>
-                <div class="dropdown">
+                <div className="dropdown">
                     <Button >{this.state.season}</Button>
                     <div class="dropdown-content">
-                        <a onClick={() => this.handleSeasonClick('winter')}>Winter</a>
-                        <a onClick={() => this.handleSeasonClick('spring')}>Spring</a>
-                        <a onClick={() => this.handleSeasonClick('summer')}>Summer</a>
-                        <a onClick={() => this.handleSeasonClick('fall')}>Fall</a>
-                        <a onClick={() => this.handleSeasonClick('all')}>All Seasons</a>
+                        <p onClick={() => this.handleSeasonClick('winter')}>Winter</p>
+                        <p onClick={() => this.handleSeasonClick('spring')}>Spring</p>
+                        <p onClick={() => this.handleSeasonClick('summer')}>Summer</p>
+                        <p onClick={() => this.handleSeasonClick('fall')}>Fall</p>
+                        <p onClick={() => this.handleSeasonClick('all')}>All Seasons</p>
                     </div>
                 </div>
                 <Button onClick={this.addNewProduct} className="submitButton">Submit</Button>

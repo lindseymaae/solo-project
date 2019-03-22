@@ -14,7 +14,7 @@ class Home extends Component {
 }
 
    render () {
-       console.log(this.props.projectReducer);
+       console.log('tj.....',this.props.projectReducer);
        
        return (
  <div>

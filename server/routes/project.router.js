@@ -8,13 +8,11 @@ const router = express.Router();
 router.get('/', (req, res) => {
 
     const queryText = `
-      SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
-        "products"."product_min_quantity", "products"."id" FROM "products"
-        
+    SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
+        "products"."product_min_quantity", "products"."id" AS "product_id" FROM "products"
 JOIN "categories" ON "products"."catergory_id" = "categories"."id"
 JOIN "seasons" ON "products"."season_id" = "seasons"."id"
-GROUP BY "product_name", "category", "season", "product_min_quantity", "products"."id" HAVING COUNT (*) > 1 OR COUNT(*) = 1;
-`
+GROUP BY "product_id","product_name", "category", "season", "product_min_quantity" HAVING sum("products"."product_quantity") < "product_min_quantity" OR "product_min_quantity" IS NULL;`
     pool.query(queryText)
         .then((response) => {
             console.log(response.rows[0]);

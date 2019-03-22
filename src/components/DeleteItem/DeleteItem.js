@@ -11,8 +11,9 @@ class Delete extends Component {
     componentDidMount() {
         console.log('Mounted');
 
-        this.props.dispatch({ type: 'FETCH_INFO' });
+        this.props.dispatch({ type: 'GET_QUANTITY' });
     }
+
     handleDeleteClick = id => () => {
 
 
@@ -37,12 +38,12 @@ class Delete extends Component {
                     </TableHead>
                     {this.props.projectReducer.map((item) => (
                         <TableBody>
-                            <TableRow key={item.id}>
+                            <TableRow key={item.product_id}>
                                 <TableCell>{item.product_name}</TableCell>
                                 <TableCell>{item.sum}</TableCell>
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.season}</TableCell>
-                                <TableCell><Button class="deleteButton" onClick={this.handleDeleteClick(item.id)}>Delete</Button></TableCell>
+                                <TableCell><Button class="deleteButton" onClick={this.handleDeleteClick(item.product_id)}>Delete</Button></TableCell>
                             </TableRow>
                        
                         </TableBody>
