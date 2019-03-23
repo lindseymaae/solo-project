@@ -18,18 +18,18 @@ class Inventory extends Component {
                 <h1 id="inventory">
                     Inventory
         </h1>
-                <Table>
-                    <TableHead className='table'>
+                <Table className='inventory-table' >
+                    <TableHead>
                         <th>Item</th>
                         <th>Quantity</th>
                         <th>Category</th>
                         <th>Season</th>
                     </TableHead>
                     {this.props.projectReducer.map((item) => (
-                        <TableBody>
-                            <TableRow>
+                        <TableBody >
+                            <TableRow className="tableRow">
                                 <TableCell>{item.product_name}</TableCell>
-                                <TableCell>{item.sum}</TableCell>
+                                <TableCell>{item.product_quantity}</TableCell>
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.season}</TableCell>
                             </TableRow>

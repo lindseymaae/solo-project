@@ -53,7 +53,7 @@ function* postProject(action) {
 function* fetchInfo() {
     // console.log('fetchInfo was hit', infoResponse.data);
     try {
-        const infoResponse = yield axios.get('/api/project');
+        const infoResponse = yield axios.get('/api/project/quantity');
         console.log('fetchInfo was hit', infoResponse.data);
         yield dispatch({ type: 'GET_INFO', payload: infoResponse.data })
     } catch (error) {
@@ -64,7 +64,7 @@ function* fetchInfo() {
 function* getQuantity (){
     console.log('GET QUANTITY get quantity was hit');
     try {
-        const infoResponse = yield axios.get(`/api/project/quantity`);
+        const infoResponse = yield axios.get(`/api/project/`);
         yield dispatch({ type: 'GET_NEEDS', payload: infoResponse.data })
     } catch (error) {
         console.log('Error with your fetch');
@@ -73,7 +73,7 @@ function* getQuantity (){
 function* deleteItem (action){
     console.log('delete saga hit', action);
     try {
-        yield axios.delete('/api/project/'+ action.payload)
+        yield axios.delete('/api/project/quantity'+ action.payload)
         yield dispatch({ type: 'FETCH_INFO' });
     } catch (error) {
         console.log(error)

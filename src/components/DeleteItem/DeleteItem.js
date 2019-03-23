@@ -26,7 +26,7 @@ class Delete extends Component {
         return (
             <div>
                 <h1 id="inventory">
-                    Inventory
+                    Delete Item
         </h1>
                 <Table>
                     <TableHead className='table'>
@@ -40,7 +40,7 @@ class Delete extends Component {
                         <TableBody>
                             <TableRow key={item.product_id}>
                                 <TableCell>{item.product_name}</TableCell>
-                                <TableCell>{item.sum}</TableCell>
+                                <TableCell>{item.product_quantity}</TableCell>
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.season}</TableCell>
                                 <TableCell><Button class="deleteButton" onClick={this.handleDeleteClick(item.product_id)}>Delete</Button></TableCell>

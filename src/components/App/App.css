@@ -47,3 +47,243 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
+ /*Volunteer-Home CSS */
+ .volunteer-home-div{
+text-align:  right;
+position: absolute;
+right: 30px;
+top: 30%;
+}
+
+.home-list  {
+ list-style-type: none;
+}
+
+ .home-link{
+  
+  color: #3e2528;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 1.75em;
+  margin-bottom: 10px;
+
+ }
+
+ .home-header{
+
+text-align:  left;
+position: absolute;
+left: 20%;
+top: 30%;
+color: #ffffff
+ }
+
+
+ /* NAV CSS */
+
+ .nav-title {
+    font-size: 24px;
+    font-weight: 700;
+    display: inline-block;
+    color: #f2f2f2;
+    padding-left: 10px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: #759150;
+  
+}
+
+.nav-link {
+  float: left;
+  color: #f2f2f2;
+  background-color: #759150;
+  text-align: center;
+  padding: 24px 10px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border:none;
+  cursor: pointer;
+  outline:0;
+}
+
+.nav-link:hover {
+  background-color: #87a554;
+}
+
+.nav-right {
+  float: right;
+}
+
+/* Home CSS */
+.home-div{
+  left: 30%;
+  position: absolute;
+   top: 30%;
+   text-align: center;
+}
+
+.list{
+    list-style-type: none;
+}
+
+/* DELETE CSS */
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.deleteButton{
+    text-align: center
+}
+
+/* Add New Item CSS */
+
+
+.addNewItem{
+margin-bottom: 200px;
+padding: 15px;
+}
+.submitButton{
+float: right;
+margin-right: 40%;
+}
+
+.dropbtn {
+  background-color: #87a554;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #87a554;}
+
+button{
+    background-color: #759150; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+button:hover {
+  background-color: #87a554;
+  color: white;
+}
+
+
+
+/* Inventory CSS */
+#inventory{top:30%;
+    left:40%;
+    color: rgb(250, 239, 226);
+    position: absolute;
+    text-align: center;
+    font-size: 3em;
+}
+
+.inventory-table {
+width: 100%;
+border-bottom-style: solid;
+border-collapse: collapse;
+}
+.inventory-table, th, td{
+text-align: left;
+border-bottom-style: solid;
+border-width: 1px;
+padding: 15px;
+}
+

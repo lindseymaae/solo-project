@@ -7,11 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
 
-    const queryText = ` SELECT "products"."product_name", sum("products"."product_quantity"), "categories"."category", "seasons"."season",
-        "products"."product_min_quantity", "products"."id" AS "product_id" FROM "products"
-JOIN "categories" ON "products"."catergory_id" = "categories"."id"
-JOIN "seasons" ON "products"."season_id" = "seasons"."id"
-GROUP BY "product_id","product_name", "category", "season", "product_min_quantity" HAVING sum("products"."product_quantity") < "product_min_quantity" OR "product_min_quantity" IS NULL;`
+    const queryText = ` SELECT "products"."product_name" FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL`
     pool.query(queryText)
         .then((response) => {
             console.log(response.rows[0]);
@@ -53,18 +49,42 @@ console.log('THIS IS GETTING HIT');
         console.log(req.body);
 
         const newProduct = req.body;
-        const queryText = 
-        `INSERT INTO "products" ("product_name", "product_quantity", "catergory_id", "season_id")
-        VALUES ($1, $2, $3, $4);`;
+        const queryText = `SELECT * FROM "products" WHERE "products"."product_name" = $1`;
+
         const queryValues = [
-            newProduct.name,
-            newProduct.quantity,
-            newProduct.category,
-            newProduct.season
+            newProduct.name
         ];
 
         pool.query(queryText, queryValues)
-            .then(() => { res.sendStatus(201); })
+            .then((results) => { 
+
+                if(results.rows.length != 0){
+                    console.log('Needs to be updated: ', results.rows[0])
+                    const foundQueryString =   `UPDATE "products" 
+                                                SET "product_quantity" = "products"."product_quantity" + $2 
+                                                WHERE "products"."product_name" = $1`;
+
+                    pool.query(foundQueryString, [newProduct.name,
+                        newProduct.quantity]).then(() => {
+                            console.log(`Updated ${newProduct.name}`)
+                            res.sendStatus(204);
+                        }).catch(err => {
+
+                        })
+                }else {
+                    const {
+                        name, quantity, season, category
+                    } = req.body;
+                    const foundQueryString = `INSERT INTO "products" ("product_name", "product_quantity", "catergory_id", "season_id") values ($1, $2, $3, $4)`;
+
+                    pool.query(foundQueryString, [name, quantity, category, season]).then(() => {
+                        console.log('Succesfully posted');
+                        res.sendStatus(204);
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }
+            })
             .catch((err) => {
                 console.log('Error completing POST Project query', err);
                 res.sendStatus(500);

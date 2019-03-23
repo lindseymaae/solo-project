@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 //Public Home page 
 class Home extends Component {
     componentDidMount() {
@@ -17,18 +16,18 @@ class Home extends Component {
       
        
        return (
- <div>
+ <div className="home-div">
     <h1 id="wishlist">
         Welcome to our wishlist
         </h1>
     <h2> Our Top Needs are:  </h2>
-    <ol>
-                   {this.props.projectReducer.map((item) => (
+    <ul className="list">
+                   {this.props.homeReducer.map((item) => (
                        <li>
                            {item.product_name}
                        </li>
                    ))}
-       </ol>
+       </ul>
             
     </div >
        )
@@ -43,7 +42,7 @@ const mapStateToProps = state => ({
     
     
     user: state.user,
-    projectReducer: state.projectReducer,
+    homeReducer: state.homeReducer,
 });
 
 // this allows us to use <App /> in index.js

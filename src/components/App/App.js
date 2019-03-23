@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -20,6 +19,8 @@ import './App.css';
 import DeleteItem from '../DeleteItem/DeleteItem';
 import Inventory from '../Inventory/Inventory';
 
+ import image from '../App/picture.jpg'
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' })
@@ -30,6 +31,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          <img src={image} alt="header-image" className="header-image" width="100%" height/>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
