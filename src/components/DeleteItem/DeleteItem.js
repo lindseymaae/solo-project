@@ -14,15 +14,18 @@ class Delete extends Component {
         this.props.dispatch({ type: 'FETCH_INFO' });
     }
 
-    handleDeleteClick = id => () => {
+    handleDeleteClick = (id) => {
 
-
-        console.log('delete button has been clicked', id)
+        console.log(id);
+        
+        // console.log('delete button has been clicked', id);
         this.props.dispatch({type: 'DELETE_ITEM', payload: id})
     }
 
 
     render() {
+        console.log('Tj', this.props.projectReducer);
+        
         return (
             <div>
                 <h1 id="inventory">
@@ -38,12 +41,12 @@ class Delete extends Component {
                     </TableHead>
                     {this.props.projectReducer.map((item) => (
                         <TableBody>
-                            <TableRow key={item.product_id}>
+                            <TableRow key={item.id}>
                                 <TableCell>{item.product_name}</TableCell>
                                 <TableCell>{item.product_quantity}</TableCell>
                                 <TableCell>{item.category}</TableCell>
                                 <TableCell>{item.season}</TableCell>
-                                <TableCell><Button class="deleteButton" onClick={this.handleDeleteClick(item.product_id)}>Delete</Button></TableCell>
+                                <TableCell><Button class="deleteButton" onClick={() => this.handleDeleteClick(item.id)}>Delete</Button></TableCell>
                             </TableRow>
                        
                         </TableBody>

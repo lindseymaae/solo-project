@@ -7,12 +7,14 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
 
-    const queryText = ` SELECT "products"."product_name" FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL`
+    const queryText = `SELECT "products"."id", "products"."product_name", "products"."product_quantity", "seasons"."season", "categories"."category"  FROM "products"
+        JOIN "categories" ON "products"."catergory_id" = "categories"."id"
+        JOIN "seasons" ON "products"."season_id" = "seasons"."id"`;
     pool.query(queryText)
         .then((response) => {
             console.log(response.rows[0]);
-            res.send(response.rows);
             
+            res.send(response.rows);
         })
         .catch((err) => {
             console.log('Error completing SELECT item query', err);
@@ -23,9 +25,7 @@ router.get('/', (req, res) => {
 router.get('/quantity', (req, res) => {
 console.log('THIS IS GETTING HIT');
 
-    const queryText = `SELECT * FROM "products"
-        JOIN "categories" ON "products"."catergory_id" = "categories"."id"
-        JOIN "seasons" ON "products"."season_id" = "seasons"."id"`
+    const queryText = `SELECT * FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL`
     pool.query(queryText)
         .then((response) => {
             res.send(response.rows);
@@ -93,7 +93,7 @@ console.log('THIS IS GETTING HIT');
 
 
 //DELETE Route, takes item id and deletes from database
-router.delete('/:id', (req, res) => {
+router.delete('/quantity/:id', (req, res) => {
     const queryText = `DELETE FROM "products" WHERE "id"=$1;`
     const queryValues = [
         req.params.id
