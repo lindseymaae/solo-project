@@ -6,7 +6,8 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "wishlist"`
+    const queryText = `SELECT "bio", "needs", "family_members", "username" FROM "wishlist" 
+JOIN "user" ON "user"."id" = "wishlist"."user_id"`
     pool.query(queryText)
         .then((response) => {
             res.send(response.rows);

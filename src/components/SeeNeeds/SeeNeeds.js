@@ -12,6 +12,8 @@ class SeeNeeds extends Component {
     }
 
     render() {
+        console.log('Tj', this.props.profileReducer);
+        
         return (
             <div>
                 <h1 id="inventory">
@@ -27,7 +29,7 @@ class SeeNeeds extends Component {
                     {this.props.profileReducer.map((item) => (
                         <TableBody >
                             <TableRow className="tableRow">
-                        <TableCell>{item.user_id}</TableCell>
+                        <TableCell>{item.username}</TableCell>
                                 <TableCell>{item.family_members}</TableCell>
                                 <TableCell>{item.bio}</TableCell>
                                 <TableCell>{item.needs}</TableCell>
