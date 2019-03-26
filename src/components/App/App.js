@@ -15,6 +15,7 @@ import VolunteerHome from '../VolunteerHome/VolunteerHome';
 import Home from '../Home/Home'
 import AddNewItem from '../AddNewItem/AddNewItem'
 import WishList from '../WishList/WishList'
+import SeeNeeds from '../SeeNeeds/SeeNeeds'
 
 import './App.css';
 import DeleteItem from '../DeleteItem/DeleteItem';
@@ -63,6 +64,9 @@ class App extends Component {
             <ProtectedRoute
               exact path='/wishlist'
               component={WishList} />
+            <ProtectedRoute
+              exact path='/seeNeeds'
+              component={SeeNeeds} />
             <Route render={() => <h1>404</h1>} />
           </Switch>
 

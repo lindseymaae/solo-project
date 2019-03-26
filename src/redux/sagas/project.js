@@ -87,6 +87,16 @@ function* addProfile (action){
         console.log(error)
     }
 }
+function* fetchProfile (){
+    try {
+        const profileResponse = yield axios.get('/api/profile');
+        console.log('fetch profile was hit', profileResponse.data);
+        yield dispatch({ type: 'GET_PROFILE', payload: profileResponse.data })
+    } catch (error) {
+        console.log('Error with your fetch');
+    }
+}
+
 
 function* projectSaga() {
     yield takeEvery('FETCH_INFO', fetchInfo)
@@ -94,6 +104,7 @@ function* projectSaga() {
     yield takeEvery('GET_QUANTITY', getQuantity)
     yield takeEvery('DELETE_ITEM', deleteItem)
     yield takeEvery('ADD_PROFILE', addProfile)
+    yield takeEvery ('FETCH_PROFILE', fetchProfile)
 }
 
 

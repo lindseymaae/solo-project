@@ -130,5 +130,18 @@ router.post('/profile', rejectUnauthenticated, (req, res) => {
     console.log(err)
 })
 })
+router.get('/profile', (req, res) => {
+    const queryText = `SELECT * FROM "wishlist"`
+    pool.query(queryText)
+        .then((response) => {
+            res.send(response.rows);
+            console.log('This is my profile GET', response.rows);
+
+        })
+        .catch((err) => {
+            console.log('Error completing SELECT item query', err);
+            res.sendStatus(500);
+        });
+});
 
 module.exports = router;

@@ -4,7 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import projectReducer from'./projectReducer';
 import homeReducer from './homeReducer';
-import profileReducer from './homeReducer';
+import profileReducer from './profileReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.

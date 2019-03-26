@@ -61,10 +61,6 @@ class WishList extends Component {
 
     render() {
         const { classes } = this.props;
-        console.log('WISHLIST',this.props.user);
-        console.log('Wislist STATE', this.state);
-        
-        
         return (
             <div className="WishingOnAStarDiv">
                 <h1><center></center>Build a Wish List</h1>
