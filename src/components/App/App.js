@@ -14,12 +14,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import VolunteerHome from '../VolunteerHome/VolunteerHome';
 import Home from '../Home/Home'
 import AddNewItem from '../AddNewItem/AddNewItem'
+import WishList from '../WishList/WishList'
 
 import './App.css';
 import DeleteItem from '../DeleteItem/DeleteItem';
 import Inventory from '../Inventory/Inventory';
 
  import image from '../App/picture.jpg'
+
 
 class App extends Component {
   componentDidMount() {
@@ -58,6 +60,9 @@ class App extends Component {
             <ProtectedRoute
               exact path='/inventory'
               component={Inventory} />
+            <ProtectedRoute
+              exact path='/wishlist'
+              component={WishList} />
             <Route render={() => <h1>404</h1>} />
           </Switch>
 

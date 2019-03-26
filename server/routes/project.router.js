@@ -1,11 +1,11 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
-
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 /**
  * GET route, gets products for inventory page
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated,  (req, res) => {
 
     const queryText = `SELECT "products"."id", "products"."product_name", "products"."product_quantity", "seasons"."season", "categories"."category"  FROM "products"
         JOIN "categories" ON "products"."catergory_id" = "categories"."id"
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/quantity', (req, res) => {
+router.get('/quantity',  (req, res) => {
 console.log('THIS IS GETTING HIT');
 
     const queryText = `SELECT * FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL`
@@ -45,7 +45,7 @@ console.log('THIS IS GETTING HIT');
  * POST route template, takes information from add new item page
  */
 
-    router.post('/', (req, res) => {
+    router.post('/', rejectUnauthenticated, (req, res) => {
         console.log(req.body);
 
         const newProduct = req.body;
@@ -93,7 +93,7 @@ console.log('THIS IS GETTING HIT');
 
 
 //DELETE Route, takes item id and deletes from database
-router.delete('/quantity/:id', (req, res) => {
+router.delete('/quantity/:id', rejectUnauthenticated, (req, res) => {
     const queryText = `DELETE FROM "products" WHERE "id"=$1;`
     const queryValues = [
         req.params.id
@@ -109,5 +109,11 @@ router.delete('/quantity/:id', (req, res) => {
         });
 
 });
+
+router.post('/profile', rejectUnauthenticated, (req, res) => {
+    console.log('PROFILE', req.body);
+    
+    
+})
 
 module.exports = router;

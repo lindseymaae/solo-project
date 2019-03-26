@@ -28,6 +28,7 @@ const Nav = (props) => (
         Delete Item
       </Link>
       <Link className="nav-link" to="/inventory"> Inventory </Link>
+      <Link className="nav-link" to="/wishlist"> Build A Wish List </Link>
       <LogOutButton className="nav-link" />
 
     </div>
