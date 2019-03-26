@@ -28,14 +28,14 @@ class WishList extends Component {
 
  
     state = {
-      user: this.props.user.username, 
+      user: this.props.user.id, 
       familySize: '',
       bio: '',
       needs: '',
 
     };
     handleFamilySize = event => {
-        this.setState({ familySize: event.target.value });
+        this.setState({ familySize: Number(event.target.value) });
     };
     handleComments = event => {
         this.setState({ bio: event.target.value });
@@ -48,7 +48,7 @@ class WishList extends Component {
 
         this.props.dispatch({ type: 'ADD_PROFILE', payload: this.state })
         this.setState({
-            user: this.props.user.username,
+            user: this.props.user.id,
             familySize: '',
             bio: '',
             needs:'',

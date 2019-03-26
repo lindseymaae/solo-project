@@ -112,8 +112,23 @@ router.delete('/quantity/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/profile', rejectUnauthenticated, (req, res) => {
     console.log('PROFILE', req.body);
+    const newProfile = req.body; 
+    const queryText = `INSERT INTO "wishlist" ("user_id", "family_members", "bio", "needs") VALUES ($1, $2, $3, $4)`
+    const queryValues = [
+        req.body.user,
+        req.body.familySize,
+        req.body.bio,
+        req.body.needs,
+    ]
+    console.log('WTF', queryValues);
     
-    
+
+    pool.query(queryText, queryValues)
+        .then(() => { 
+            res.sendStatus(201)
+        }).catch(err => {
+    console.log(err)
+})
 })
 
 module.exports = router;
