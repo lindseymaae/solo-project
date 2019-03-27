@@ -16,12 +16,13 @@ import Home from '../Home/Home'
 import AddNewItem from '../AddNewItem/AddNewItem'
 import WishList from '../WishList/WishList'
 import SeeNeeds from '../SeeNeeds/SeeNeeds'
-
-import './App.css';
+import LoginPage from '../LoginPage/LoginPage';
 import DeleteItem from '../DeleteItem/DeleteItem';
 import Inventory from '../Inventory/Inventory';
 
+import './App.css';
  import image from '../App/picture.jpg'
+
 
 
 class App extends Component {
@@ -40,9 +41,8 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             <Route exact path='/home'
               component={Home} />
-            {/* Visiting localhost:3000/about will show the about page.
-            This is a route anyone can see, no login necessary */}
-            <Route
+          <Route exact path = '/login' component={LoginPage} />
+             <Route
               exact
               path="/add-new-item"
               component={AddNewItem}

@@ -68,7 +68,7 @@ class WishList extends Component {
                
 
                 <span><h3>Welcome {this.props.user.username}!!</h3> How many people live in your home?</span>
-                <select onChange = {this.handleFamilySize}>
+                <select onChange = {this.handleFamilySize} >
                     <option value = "1">1</option>
                     <option value = "2">2</option>
                     <option value="3">3</option>
@@ -79,7 +79,11 @@ class WishList extends Component {
                 </select>
                 <div>
                   
-                    <p>Tell us about yourself!</p>
+                    <span>Tell us about yourself.
+                        What are your hobbies?
+                        Are you in school?
+                        <p>Do you have children in your household? If so, how many and what ages? </p>
+                    </span>
                     <TextField
                         id="Bio"
                         label="Bio"

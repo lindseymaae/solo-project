@@ -9,28 +9,30 @@ const Nav = (props) => (
       <h2 className="nav-title">Prime Solo Project</h2>
     </Link>
     <div className="nav-right">
-      <Link className="nav-link" to="/volunteer-home">
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
-        {props.user.id ? 'Home' : 'Login / Register'}
-      </Link>
+        <Link className="nav-link"
+        to="/login">Login</Link>
+      
       {/* Show the link to the add new item page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
+          <Link className="nav-link" to="/volunteer-home"></Link>
           <Link className="nav-link" to="/add-new-item">
             Add New Item
           </Link>
+          <Link className="nav-link" to="/delete-item">
+            Delete Item
+      </Link>
+          <Link className="nav-link" to="/inventory"> Inventory </Link>
+          <Link className="nav-link" to="/wishlist"> Build A Wish List </Link>
+          <Link className="nav-link" to="/seeNeeds"> View Community Wish Lists</Link>
+          {/* Always show this link since the about page is not protected */}
+          <LogOutButton className="nav-link" />
         </>
       )}
-      {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/delete-item">
-        Delete Item
-      </Link>
-      <Link className="nav-link" to="/inventory"> Inventory </Link>
-      <Link className="nav-link" to="/wishlist"> Build A Wish List </Link>
-      <Link className="nav-link" to="/seeNeeds"> View Community Wish Lists</Link>
-      <LogOutButton className="nav-link" />
+      
 
     </div>
   </div>
