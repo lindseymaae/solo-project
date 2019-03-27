@@ -80,22 +80,6 @@ function* deleteItem (action){
         console.log(error)
     }
 }
-function* addProfile (action){
-    try {
-        yield axios.post('/api/project/profile', action.payload)
-    } catch (error) {
-        console.log(error)
-    }
-}
-function* fetchProfile (){
-    try {
-        const profileResponse = yield axios.get('/api/profile');
-        console.log('fetch profile was hit', profileResponse.data);
-        yield dispatch({ type: 'GET_PROFILE', payload: profileResponse.data })
-    } catch (error) {
-        console.log('Error with your fetch');
-    }
-}
 
 
 function* projectSaga() {
@@ -103,8 +87,7 @@ function* projectSaga() {
     yield takeEvery('POST_INFO', postProject)
     yield takeEvery('GET_QUANTITY', getQuantity)
     yield takeEvery('DELETE_ITEM', deleteItem)
-    yield takeEvery('ADD_PROFILE', addProfile)
-    yield takeEvery ('FETCH_PROFILE', fetchProfile)
+   
 }
 
 
