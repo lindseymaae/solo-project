@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { Link } from 'react-router-dom';
+import './VolunteerHome.css'
 
 //Home page for volunteers 
 const VolunteerPage = (props) => (
-    <div>
+    <div className='home-container🏠'>
         <div className="home-header">
             <h1 id="welcome">
                 Welcome, {props.user.username}!
@@ -15,17 +16,24 @@ const VolunteerPage = (props) => (
         <div className="volunteer-home-div">
             <ul className="home-list">
                 <li>
-                    <Link className="home-link" to="/delete-item">
-                        Delete Item</Link>
-                </li>
-                <li>
                     <Link className="home-link" to="/add-new-item">
                         Add New Item</Link>
                 </li>
                 <li>
+                    <Link className="home-link" to="/delete-item">
+                        Delete Item</Link>
+                </li>
+                <li>
                     <Link className="home-link" to="/inventory"> Inventory </Link>
                 </li>
+                <li>
+                    <Link className="home-link" to="/wishlist">Build a Wishlist</Link>
+                </li>
+                <li>
+                    <Link className="home-link" to="/seeNeeds">View Wishlists</Link>
+                </li>
             </ul>
+
         </div>
     </div>
 );

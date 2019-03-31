@@ -32,6 +32,8 @@ class WishList extends Component {
       familySize: '',
       bio: '',
       needs: '',
+      kids: '',
+
 
     };
     handleFamilySize = event => {
@@ -39,6 +41,9 @@ class WishList extends Component {
     };
     handleComments = event => {
         this.setState({ bio: event.target.value });
+    }
+    handleKids = event => {
+        this.setState({ kids: event.target.value });
     }
     handleNeeds = event =>{
         this.setState({needs: event.target.value});
@@ -52,6 +57,7 @@ class WishList extends Component {
             familySize: '',
             bio: '',
             needs:'',
+            kids: '',
         })
         
     }
@@ -79,11 +85,10 @@ class WishList extends Component {
                 </select>
                 <div>
                   
-                    <span>Tell us about yourself.
+                    <p>Tell us about yourself.
                         What are your hobbies?
                         Are you in school?
-                        <p>Do you have children in your household? If so, how many and what ages? </p>
-                    </span>
+                    </p>
                     <TextField
                         id="Bio"
                         label="Bio"
@@ -94,6 +99,16 @@ class WishList extends Component {
                         variant="outlined"
                         onChange = {this.handleComments}
                     />
+                    <p>Does your household include chidlren? If so, how many and what age?</p>
+                    <TextField
+                    id="kids"
+                    label="Kids"
+                    placeholder="Kids"
+                    mulitline
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    onChange = {this.handleKids } />
                     <p>Tell us how we can help!</p>
                     <TextField
                         id="Needs"

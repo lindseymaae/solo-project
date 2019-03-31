@@ -22,6 +22,7 @@ import Inventory from '../Inventory/Inventory';
 
 import './App.css';
  import image from '../App/picture.jpg'
+import RegisterPage from '../RegisterPage/RegisterPage';
 
 
 
@@ -67,6 +68,9 @@ class App extends Component {
             <ProtectedRoute
               exact path='/seeNeeds'
               component={SeeNeeds} />
+              <Route 
+              exact path = '/register'
+              component = {RegisterPage} />
             <Route render={() => <h1>404</h1>} />
           </Switch>
 

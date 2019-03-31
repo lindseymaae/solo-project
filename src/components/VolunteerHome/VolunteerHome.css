@@ -1,0 +1,47 @@
+.home-link {
+    text-decoration: none;
+}
+
+.home-container🏠{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 120px;
+    left: 50px
+}
+#welcome{
+    font-size: 50px;
+    margin-bottom: 0px;
+}
+
+.home-header {
+    text-shadow: 1px 1px 10px black;
+}
+
+.home-header h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.volunteer-home-div{
+    text-align: left;
+}
+
+.home-list{
+    padding: 0px;
+    text-align: left
+}
+
+
+
+.home-link {
+    padding: 0px;
+    border-radius: 0px;
+    transition: all 300ms ease;
+}
+
+.home-link:hover{
+    color: #759150;
+    transform: scale3d(1.1,1.1,1.1,1)
+}

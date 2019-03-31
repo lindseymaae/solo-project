@@ -80,9 +80,9 @@ class AddNewItem extends Component {
 
         return (
             <div className="addNewItem">
-                
-                    <h1 id="inventory">
-                        Add New Item
+
+                <h1 id="inventory">
+                    Add New Item
                 </h1>
 
                 <div>
@@ -108,8 +108,6 @@ class AddNewItem extends Component {
                         onChange={this.handleQuantityChange}
                         value={this.state.quantity}
                     />
-                </div>
-                <div>
                     <div className="dropdown">
                         <button className="category-button">{this.state.category}</button>
                         <div class="dropdown-content">
@@ -129,6 +127,9 @@ class AddNewItem extends Component {
                         </div>
 
                     </div>
+                </div>
+                <div>
+
                     <button onClick={this.addNewProduct} className="submitButton">Submit</button>
                 </div>
             </div>

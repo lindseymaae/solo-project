@@ -33,11 +33,12 @@ class Delete extends Component {
         </h1>
                 <Table>
                     <TableHead className='table'>
-                        <th>Item</th>
+                    <tr>
                         <th>Quantity</th>
                         <th>Category</th>
                         <th>Season</th>
                         <th>Delete</th>
+                    </tr>
                     </TableHead>
                     {this.props.projectReducer.map((item) => (
                         <TableBody>

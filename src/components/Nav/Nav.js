@@ -6,7 +6,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Prime Solo Project</h2>
+      <h2 className="nav-title">HopeShelf</h2>
     </Link>
     <div className="nav-right">
         {/* Show this link if they are logged in or not,
@@ -18,7 +18,8 @@ const Nav = (props) => (
       {/* Show the link to the add new item page and the logout button if the user is logged in */}
       {props.user.id && (
         <>
-          <Link className="nav-link" to="/volunteer-home"></Link>
+          <Link className="nav-link" to="/volunteer-home">
+          Home</Link>
           <Link className="nav-link" to="/add-new-item">
             Add New Item
           </Link>
@@ -28,6 +29,7 @@ const Nav = (props) => (
           <Link className="nav-link" to="/inventory"> Inventory </Link>
           <Link className="nav-link" to="/wishlist"> Build A Wish List </Link>
           <Link className="nav-link" to="/seeNeeds"> View Community Wish Lists</Link>
+
           {/* Always show this link since the about page is not protected */}
           <LogOutButton className="nav-link" />
         </>

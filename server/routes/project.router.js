@@ -94,11 +94,11 @@ console.log('THIS IS GETTING HIT');
 
 //DELETE Route, takes item id and deletes from database
 router.delete('/quantity/:id', rejectUnauthenticated, (req, res) => {
-    const queryText = `DELETE FROM "products" WHERE "id"=$1;`
+    const queryText = ` DELETE FROM "products" WHERE "products"."id" = $1`
     const queryValues = [
-        req.params.id
+        req.params.id    
     ];
-    console.log('req.params.id', queryValues);
+    console.log('helloooo', queryValues);
 
     pool.query(queryText, queryValues)
 
@@ -113,11 +113,13 @@ router.delete('/quantity/:id', rejectUnauthenticated, (req, res) => {
 router.post('/profile', rejectUnauthenticated, (req, res) => {
     console.log('PROFILE', req.body);
     const newProfile = req.body; 
-    const queryText = `INSERT INTO "wishlist" ("user_id", "family_members", "bio", "needs") VALUES ($1, $2, $3, $4)`
+    const queryText = `INSERT INTO "wishlist" ("user_id", "family_members", "bio", "kids", 
+    "needs") VALUES ($1, $2, $3, $4, $5)`
     const queryValues = [
         req.body.user,
         req.body.familySize,
         req.body.bio,
+        req.body.kids,
         req.body.needs,
     ]
     console.log('WTF', queryValues);
