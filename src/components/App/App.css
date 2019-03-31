@@ -1,20 +1,22 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
 }
 
 .alert {
-    background-color: #ff4545;
-    margin: 50px;
+  background-color: #ff4545;
+  margin: 50px;
 }
 
 form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
+  background-color: #759150;
+  width: 30%;
+  height: 250px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 2px;
+  position: static;
+  float: top;
 }
 
 input {
@@ -23,7 +25,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #759150;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,72 +35,40 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #759150;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
-    background:none;
-    color:inherit;
-    border:none;
-    padding:0;
-    font: inherit;
-    outline:0;
-    border-bottom:1px solid #444; 
-    cursor: pointer;
-}
-
- /*Volunteer-Home CSS */
- .volunteer-home-div{
-  text-align:  right;
-  /* position: absolute; */
-  /* right: 30px; */
-  /* top: 30%; */
-  z-index: 1;
-}
-
-.home-list  {
- list-style-type: none;
-}
-
-.home-list li {
-  margin-bottom: 10px;
-}
-
-
- .home-link{
-  
+  background:none;
+  color:inherit;
+  border:none;
+  padding:0;
+  font: inherit;
+  outline:0;
+  border-bottom:1px solid #444; 
+  cursor: pointer;
   text-align: center;
-  font-size: 1.75em;
-  color: white;
-  text-shadow: 0px 0px 5px black;
-
- }
-
- .home-header{
-  /* text-align:  left; */
-  /* position: absolute; */
-  /* left: 20%; */
-  /* top: 30%; */
-  color: #ffffff;
-  z-index: 1;
- }
-
+  align-self: center;
+}
 
  /* NAV CSS */
-
  .nav-title {
-    font-size: 24px;
-    font-weight: 700;
-    display: inline-block;
-    color: #f2f2f2;
-    padding-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  display: inline-block;
+  color: #f2f2f2;
+  padding-left: 10px;
 }
 
 .nav {
   overflow: hidden;
   background-color: #759150;
-  
+  /* background-image: url('./HopeShelf.png'); */
+  float: top;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-link {
@@ -122,17 +92,22 @@ input {
 }
 
 .nav-right {
-  float: right;
+  /* float: right; */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-content: center;
+  height: 70px;
 }
 
 /* Home CSS */
 .home-div{
-  /* left: 30%;
+  top:30%;
+  color: #759150;
   position: absolute;
-   top: 30%;
-   text-align: center;
-   color: white */
-   z-index: 1;
+  margin-left: 35%;
+  text-align: center;
+  text-shadow: 0px 0px 2px black;
 }
 
 .list{
@@ -195,20 +170,21 @@ input {
 }
 
 .deleteButton{
-    text-align: center
+  text-align: center
 }
 
 /* Add New Item CSS */
 
 
 .addNewItem{
-margin-bottom: 200px;
-padding: 15px;
-margin: 0px 20% 200px 20%;
+  margin-bottom: 200px;
+  padding: 15px;
+  margin: 0px 20% 200px 20%;
 }
+
 .submitButton{
-float: right;
-margin-right: 40%;
+  float: right;
+  margin-right: 40%;
 }
 
 .dropbtn {
@@ -253,7 +229,7 @@ margin-right: 40%;
 .dropdown:hover .dropbtn {background-color: #87a554;}
 
 button{
-    background-color: #759150; /* Green */
+  background-color: #759150; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -266,13 +242,10 @@ button{
   cursor: pointer;
 }
 
-
 button:hover {
   background-color: #87a554;
   color: white;
 }
-
-
 
 /* Inventory CSS */
 #inventory{
@@ -290,15 +263,10 @@ width: 100%;
 border-bottom-style: solid;
 border-collapse: collapse;
 }
+
 .inventory-table, th, td{
 text-align: left;
 border-bottom-style: solid;
 border-width: 1px;
 padding: 15px;
 }
-
-.header-image {
-  /* position: absolute; */
-  /* object-fit: contain; */
-}
-

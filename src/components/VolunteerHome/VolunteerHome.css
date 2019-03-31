@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 120px;
+    top: 190px;
     left: 50px
 }
 #welcome{
@@ -24,8 +24,11 @@
     color: white;
 }
 
-.volunteer-home-div{
-    text-align: left;
+ .volunteer-home-div{
+  text-align:  right;
+  right: 30px;
+  top: 30%;
+  z-index: 1;
 }
 
 .home-list{
@@ -45,3 +48,32 @@
     color: #759150;
     transform: scale3d(1.1,1.1,1.1,1)
 }
+
+
+
+.home-list  {
+ list-style-type: none;
+}
+
+.home-list li {
+  margin-bottom: 10px;
+}
+
+
+ .home-link{
+  
+  text-align: center;
+  font-size: 1.75em;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+
+ }
+
+ .home-header{
+  /* text-align:  left; */
+  /* position: absolute; */
+  /* left: 20%; */
+  /* top: 30%; */
+  color: #ffffff;
+  z-index: 1;
+ }

@@ -16,11 +16,6 @@ class Home extends Component {
 
         return (
             <div className="home-div">
-                {/* <div style={{
-                    backgroundImage: `url(${image})`,
-                    height: '200px',
-                    backgroundPosition: 'bottom'
-                }} /> */}
                 <h1 id="wishlist">
                     Welcome to our wishlist
                 </h1>

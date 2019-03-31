@@ -9,7 +9,8 @@ router.get('/', rejectUnauthenticated,  (req, res) => {
 
     const queryText = `SELECT "products"."id", "products"."product_name", "products"."product_quantity", "seasons"."season", "categories"."category"  FROM "products"
         JOIN "categories" ON "products"."catergory_id" = "categories"."id"
-        JOIN "seasons" ON "products"."season_id" = "seasons"."id"`;
+        JOIN "seasons" ON "products"."season_id" = "seasons"."id"
+         ORDER BY "products"."product_name"`;
     pool.query(queryText)
         .then((response) => {
             console.log(response.rows[0]);
@@ -25,7 +26,7 @@ router.get('/', rejectUnauthenticated,  (req, res) => {
 router.get('/quantity',  (req, res) => {
 console.log('THIS IS GETTING HIT');
 
-    const queryText = `SELECT * FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL`
+    const queryText = `SELECT * FROM "products" WHERE "products"."product_quantity" < "products"."product_min_quantity" OR "products"."product_min_quantity" IS NULL ORDER BY "products"."product_name"`
     pool.query(queryText)
         .then((response) => {
             res.send(response.rows);
