@@ -71,7 +71,6 @@ class WishList extends Component {
             <div className="WishingOnAStarDiv">
                 <h1><center></center>Build a Wish List</h1>
                 <p>We would love to help you and your family. Please fill out the form below and we will do our best to help!</p>
-               
 
                 <span><h3>Welcome {this.props.user.username}!!</h3> How many people live in your home?</span>
                 <select onChange = {this.handleFamilySize} >
@@ -99,7 +98,7 @@ class WishList extends Component {
                         variant="outlined"
                         onChange = {this.handleComments}
                     />
-                    <p>Does your household include chidlren? If so, how many and what age?</p>
+                    {/* <p>Does your household include chidlren? If so, how many and what age?</p>
                     <TextField
                     id="kids"
                     label="Kids"
@@ -108,7 +107,7 @@ class WishList extends Component {
                     className={classes.textField}
                     margin="normal"
                     variant="outlined"
-                    onChange = {this.handleKids } />
+                    onChange = {this.handleKids } /> */}
                     <p>Tell us how we can help!</p>
                     <TextField
                         id="Needs"
