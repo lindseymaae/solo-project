@@ -36,7 +36,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <img src={image} alt="header-image" className="header-image" width="100%" height/>
+          <img src={image} alt="header-image" className="header-image" width="100%" height="450px"/>
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />

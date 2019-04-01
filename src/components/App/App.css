@@ -69,11 +69,12 @@ input {
   height: 200px;
   display: flex;
   flex-direction: row;
+ 
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
+  color: black;
   background-color: #759150;
   text-align: center;
   padding: 24px 10px;
@@ -102,16 +103,23 @@ input {
 
 /* Home CSS */
 .home-div{
-  top:30%;
-  color: #759150;
-  position: absolute;
-  margin-left: 35%;
-  text-align: center;
-  text-shadow: 0px 0px 2px black;
+ top: 30%;
+    color: #759150;
+    margin: 24px auto;
+    /* position: absolute; */
+    transform: translateY(-450px);
+    max-width: 60%;
+    text-align: center;
+    /* text-shadow: 0px 2px 2px black; */
+    background-color: rgba(255, 255, 255, 0.67);
+    padding: 24px;
+    border-radius: 16px;
 }
 
 .list{
     list-style-type: none;
+    font-size: 25px;
+    color: black;
 }
 
 /* DELETE CSS */
@@ -189,7 +197,7 @@ input {
 
 .dropbtn {
   background-color: #87a554;
-  color: white;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -231,7 +239,7 @@ input {
 button{
   background-color: #759150; /* Green */
   border: none;
-  color: white;
+  color: black;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
