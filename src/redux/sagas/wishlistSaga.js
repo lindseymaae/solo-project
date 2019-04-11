@@ -1,6 +1,5 @@
 import { put as dispatch, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import projectSaga from './project';
 
 
 function* addProfile(action) {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import image from '../App/picture.jpg'
 
 //Public Home page 
 class Home extends Component {

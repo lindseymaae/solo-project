@@ -20,6 +20,7 @@ function* postProject(action) {
         case 'hygiene':
             action.payload.category = 3;
             break;
+      
     }
 
     switch (season) {

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/styles'
 //Home page for volunteers 
 
-
+//text field styling
 import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
@@ -43,7 +41,7 @@ class AddNewItem extends Component {
         this.setState({
             season: item
         })
-    }
+    }//sets the state based on click of season button
 
     addNewProduct = event => {
         event.preventDefault();
@@ -55,7 +53,7 @@ class AddNewItem extends Component {
             category: 'Category',
             season: 'Season',
         });
-    }
+    } //dispatches state to sagas, and subsequently resets state 
 
     handleItemChange = (event) => {
         console.log(event.target.value);
@@ -64,7 +62,7 @@ class AddNewItem extends Component {
             ...this.state,
             name: event.target.value
         })
-    }
+    } // takes in the item name input from user and sets state 
 
     handleQuantityChange = (event) => {
         console.log(event.target.value);
@@ -73,7 +71,7 @@ class AddNewItem extends Component {
             ...this.state,
             quantity: event.target.value
         })
-    }
+    }// takes in quantity input from user and sets state
 
     render() {
         console.log(this.state);
@@ -85,7 +83,7 @@ class AddNewItem extends Component {
                     Add New Item
                 </h1>
 
-                <div>
+                <div id="inputDiv">
                     <TextField
                         id="outlined-textarea"
                         label="Item"
@@ -110,20 +108,20 @@ class AddNewItem extends Component {
                     />
                     <div className="dropdown">
                         <button className="category-button">{this.state.category}</button>
-                        <div class="dropdown-content">
-                            <p onClick={() => this.handleCategoryClick('food')}>Food</p>
-                            <p onClick={() => this.handleCategoryClick('clothing')}>Clothing</p>
-                            <p onClick={() => this.handleCategoryClick('hygiene')}>Hygiene</p>
+                        <div className="dropdown-content">
+                            <p onClick={() => this.handleCategoryClick('Food')}>Food</p>
+                            <p onClick={() => this.handleCategoryClick('Clothing')}>Clothing</p>
+                            <p onClick={() => this.handleCategoryClick('Hygiene')}>Hygiene</p>
                         </div>
                     </div>
                     <div className="dropdown">
                         <button >{this.state.season}</button>
                         <div class="dropdown-content">
-                            <p onClick={() => this.handleSeasonClick('winter')}>Winter</p>
-                            <p onClick={() => this.handleSeasonClick('spring')}>Spring</p>
-                            <p onClick={() => this.handleSeasonClick('summer')}>Summer</p>
-                            <p onClick={() => this.handleSeasonClick('fall')}>Fall</p>
-                            <p onClick={() => this.handleSeasonClick('all')}>All Seasons</p>
+                            <p onClick={() => this.handleSeasonClick('Winter')}>Winter</p>
+                            <p onClick={() => this.handleSeasonClick('Spring')}>Spring</p>
+                            <p onClick={() => this.handleSeasonClick('Summer')}>Summer</p>
+                            <p onClick={() => this.handleSeasonClick('Fall')}>Fall</p>
+                            <p onClick={() => this.handleSeasonClick('All')}>All Seasons</p>
                         </div>
 
                     </div>
