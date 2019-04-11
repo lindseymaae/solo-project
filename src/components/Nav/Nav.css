@@ -1,0 +1,49 @@
+
+
+ .nav-title {
+  font-size: 24px;
+  font-weight: 700;
+  display: inline-block;
+  color: #f2f2f2;
+  padding-left: 10px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: #759150;
+  /* background-image: url('./HopeShelf.png'); */
+  float: top;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+.nav-link {
+  float: left;
+  color: black;
+  background-color: #759150;
+  text-align: center;
+  padding: 24px 10px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border:none;
+  cursor: pointer;
+  outline:0;
+}
+
+.nav-link:hover {
+  background-color: #87a554;
+}
+
+.nav-right {
+  /* float: right; */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-content: center;
+  height: 90px;
+}

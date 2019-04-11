@@ -3,15 +3,21 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import heroImage from '../App/HopeShelf.png';
+import './Nav.css';
 
 const Nav = (props) => (
+
   <div className="nav">
     <Link to="/home">
     <img src={heroImage} alt="nav"></img>
     </Link>
+    
+    <Link to="/login" className="nav-link">Login</Link>
+
     <div className="nav-right">
           {props.user.id && (
         <>
+        
           <Link className="nav-link" to="/volunteer-home">
           Home</Link>
           <Link className="nav-link" to="/add-new-item">
